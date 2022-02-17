@@ -1,4 +1,11 @@
+import Todo from './model/Todo'
+
 function App() {
+  let todo: Todo = new Todo(1, 'Learn React')
+  todo = todo.alternateStatus()
+  todo = todo.alternateStatus()
+  todo = todo.alternateStatus()
+
   return (
     <div
       className={`
@@ -10,9 +17,9 @@ function App() {
       h-screen
     `}
     >
-      <span>1</span>
-      <span>2</span>
-      <span className="text-purple-300">3</span>
+      <span>{todo.id}</span>
+      <span>{todo.description}</span>
+      <span>{todo.completed ? 'Completed' : 'Ativa'}</span>
     </div>
   )
 }
