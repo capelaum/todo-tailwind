@@ -9,35 +9,39 @@ export default class Todo {
     this.#completed = completed
   }
 
-  static createActive(id: number, description: string) {
+  static createActive(id: number, description: string): Todo {
     return new Todo(id, description)
   }
 
-  static createCompleted(id: number, description: string) {
+  static createCompleted(id: number, description: string): Todo {
     return new Todo(id, description, true)
   }
 
-  get id() {
+  get id(): number {
     return this.#id
   }
 
-  get description() {
+  get description(): string {
     return this.#description
   }
 
-  get completed() {
+  get active(): boolean {
+    return !this.#completed
+  }
+
+  get completed(): boolean {
     return this.#completed
   }
 
-  alternateStatus() {
+  alternateStatus(): Todo {
     return this.completed ? this.activate() : this.complete()
   }
 
-  activate() {
+  activate(): Todo {
     return Todo.createActive(this.id, this.description)
   }
 
-  complete() {
+  complete(): Todo {
     return Todo.createCompleted(this.id, this.description)
   }
 }

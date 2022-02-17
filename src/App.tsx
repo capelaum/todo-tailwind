@@ -1,10 +1,18 @@
+import { initialTodosList } from './data/mock'
 import Todo from './model/Todo'
 
 function App() {
-  let todo: Todo = new Todo(1, 'Learn React')
-  todo = todo.alternateStatus()
-  todo = todo.alternateStatus()
-  todo = todo.alternateStatus()
+  const todos = initialTodosList
+
+  function renderTodos() {
+    return todos.itens.map((todo: Todo) => (
+      <div key={todo.id}>
+        <span>{todo.id} | </span>
+        <span>{todo.description} | </span>
+        <span>{todo.completed ? 'Completed' : 'Active'}</span>
+      </div>
+    ))
+  }
 
   return (
     <div
@@ -17,9 +25,7 @@ function App() {
       h-screen
     `}
     >
-      <span>{todo.id}</span>
-      <span>{todo.description}</span>
-      <span>{todo.completed ? 'Completed' : 'Ativa'}</span>
+      {renderTodos()}
     </div>
   )
 }
