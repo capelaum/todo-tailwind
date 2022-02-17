@@ -10,41 +10,57 @@ export default class TodosList {
     this.#filter = filter ?? Filter.NONE
   }
 
-  get itens() {
+  get itens(): Todo[] {
     return this.applyFilter(this.#all)
   }
 
-  get quantity() {
+  get quantity(): number {
     return this.itens.length
   }
 
-  get filter() {
+  get filter(): Filter {
     return this.#filter
   }
 
-  filterActiveTodos() {
+  createTodo(newTodo: Todo): TodosList {
+    const allTodos = [...this.#all]
+
+    allTodos.push(newTodo)
+    return new TodosList(allTodos, this.filter)
+  }
+
+  updateTodo(todo: Todo): TodosList {
+    const allTodos = [...this.#all]
+
+    const index = allTodos.findIndex((t) => t.id === todo.id)
+
+    allTodos[index] = todo
+    return new TodosList(allTodos, this.filter)
+  }
+
+  deleteCompletedTodos(): TodosList {
+    const onlyActives = this.applyFilterActive(this.#all)
+
+    return new TodosList(onlyActives)
+  }
+
+  filterActiveTodos(): TodosList {
     if (!this.isFilterActive()) return new TodosList(this.#all, Filter.ACTIVE)
 
     return this
   }
 
-  filterCompletedTodos() {
+  filterCompletedTodos(): TodosList {
     if (!this.isFilterCompleted())
       return new TodosList(this.#all, Filter.COMPLETED)
 
     return this
   }
 
-  removeFilters() {
+  removeFilters(): TodosList {
     if (!this.isFilterNone()) return new TodosList(this.#all, Filter.NONE)
 
     return this
-  }
-
-  deleteCompletedTodos() {
-    const onlyActives = this.applyFilterActive(this.#all)
-
-    return new TodosList(onlyActives)
   }
 
   isFilterNone(): boolean {
