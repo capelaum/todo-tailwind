@@ -13,11 +13,10 @@ export function ListItem({ value, completed, alternateStatus }: ListItemProps) {
     <li
       onClick={alternateStatus}
       className={`
-      flex items-center
-      text-black text-md p-5
-      border-b border-gray-400
-      cursor-pointer
-
+        flex items-center
+        text-black text-md p-5
+        border-b border-gray-400
+        cursor-pointer
     `}
     >
       <Selection value={completed} />

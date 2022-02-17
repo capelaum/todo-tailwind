@@ -1,5 +1,6 @@
 import Todo from '../../model/Todo'
 import TodosList from '../../model/TodosList'
+import { ListButton } from './ListButton'
 import { ListItem } from './ListItem'
 
 interface ListProps {
@@ -35,6 +36,11 @@ export function List({ todos, changed }: ListProps) {
     >
       <ul className="w-full list-none bg-white shadow-lg rounded-lg">
         {renderTodos()}
+        <li className="p-5">
+          <ListButton selected={true} className="" onClick={(e) => {}}>
+            Todas
+          </ListButton>
+        </li>
       </ul>
     </div>
   )

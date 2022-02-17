@@ -12,7 +12,7 @@ function App() {
       h-screen
       flex flex-col
       justify-center items-center
-      bg-gray-500
+    bg-gray-600
     `}
     >
       <List
