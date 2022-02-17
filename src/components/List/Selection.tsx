@@ -10,9 +10,9 @@ export function Selection({ value }: SelectionProps) {
       className={`
       w-7 h-7 cursor-pointer
       flex justify-center items-center
+      rounded-full
       border border-gray-400
       text-white
-      rounded-full
       ${gradient}
     `}
     >

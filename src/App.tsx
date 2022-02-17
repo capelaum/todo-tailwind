@@ -1,19 +1,26 @@
-import { Selection } from './components/List/Selection'
+import { useState } from 'react'
+
+import { List } from './components/List/List'
+import { initialTodosList } from './data/mock'
 
 function App() {
+  const [todos, setTodos] = useState(initialTodosList)
+
   return (
     <div
       className={`
-      flex flex-col
-      justify-center
-      items-center
-      text-white
-      bg-gradient-to-tr from-gray-600 to-gray-900
       h-screen
+      flex flex-col
+      justify-center items-center
+      bg-gray-500
     `}
     >
-      <Selection value={true} />
-      <Selection value={false} />
+      <List
+        todos={todos}
+        changed={(newTodosList) => {
+          setTodos(newTodosList)
+        }}
+      />
     </div>
   )
 }
