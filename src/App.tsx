@@ -2,7 +2,11 @@ import { initialTodosList } from './data/mock'
 import Todo from './model/Todo'
 
 function App() {
-  const todos = initialTodosList
+  let todos = initialTodosList
+  todos = todos.filterActiveTodos()
+  todos = todos.filterCompletedTodos()
+  todos = todos.removeFilters()
+  todos = todos.deleteCompletedTodos()
 
   function renderTodos() {
     return todos.itens.map((todo: Todo) => (

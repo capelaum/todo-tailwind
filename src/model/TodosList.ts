@@ -22,6 +22,31 @@ export default class TodosList {
     return this.#filter
   }
 
+  filterActiveTodos() {
+    if (!this.isFilterActive()) return new TodosList(this.#all, Filter.ACTIVE)
+
+    return this
+  }
+
+  filterCompletedTodos() {
+    if (!this.isFilterCompleted())
+      return new TodosList(this.#all, Filter.COMPLETED)
+
+    return this
+  }
+
+  removeFilters() {
+    if (!this.isFilterNone()) return new TodosList(this.#all, Filter.NONE)
+
+    return this
+  }
+
+  deleteCompletedTodos() {
+    const onlyActives = this.applyFilterActive(this.#all)
+
+    return new TodosList(onlyActives)
+  }
+
   isFilterNone(): boolean {
     return this.filter === Filter.NONE
   }
