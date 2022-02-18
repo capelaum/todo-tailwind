@@ -29,7 +29,7 @@ export function List({ todos, changed }: ListProps) {
   }
 
   return (
-    <div className="flex w-3/5">
+    <div className="flex w-3/5 items-start">
       <ul className="w-full list-none bg-white shadow-lg rounded-lg">
         {renderTodos()}
         <ListFooter todos={todos} changed={changed} />

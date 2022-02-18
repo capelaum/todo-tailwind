@@ -1,6 +1,8 @@
 import { useState } from 'react'
 
 import { List } from './components/List/List'
+import { Content } from './components/Template/Content'
+import { Header } from './components/Template/Header'
 import { initialTodosList } from './data/mock'
 
 function App() {
@@ -11,16 +13,18 @@ function App() {
       className={`
       h-screen
       flex flex-col
-      justify-center items-center
-    bg-gray-600
+    bg-gray-300
     `}
     >
-      <List
-        todos={todos}
-        changed={(newTodosList) => {
-          setTodos(newTodosList)
-        }}
-      />
+      <Header></Header>
+      <Content>
+        <List
+          todos={todos}
+          changed={(newTodosList) => {
+            setTodos(newTodosList)
+          }}
+        />
+      </Content>
     </div>
   )
 }
