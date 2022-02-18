@@ -9,13 +9,7 @@ function App() {
   const [todos, setTodos] = useState(initialTodosList)
 
   return (
-    <div
-      className={`
-      h-screen
-      flex flex-col
-    bg-gray-300
-    `}
-    >
+    <div className="h-screen flex flex-col bg-gray-300">
       <Header></Header>
       <Content>
         <List

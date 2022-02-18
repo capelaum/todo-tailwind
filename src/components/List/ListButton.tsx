@@ -19,13 +19,11 @@ export function ListButton({
   return (
     <button
       onClick={onClick}
-      className={`${className}
-        font-semibold
-        hover:text-black
-        focus:outline-none
-        text-sm
-        ${text}
-        ${border}
+      className={`
+        ${className}
+        text-sm font-semibold
+        hover:text-black focus:outline-none
+        ${text} ${border}
       `}
     >
       {children}
