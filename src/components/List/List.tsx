@@ -30,7 +30,10 @@ export function List({ todos, changed }: ListProps) {
 
   return (
     <div className="relative flex w-3/5 items-start">
-      <ul className="absolute mt-4 -top-14 w-full list-none bg-white shadow-lg rounded-lg max-h-full overflow-y-scroll">
+      <ul
+        className="absolute mt-4 -top-14 w-full list-none bg-white shadow-lg rounded-lg
+          h-fit max-h-full overflow-y-scroll"
+      >
         <ListFooter todos={todos} changed={changed} />
         {renderTodos()}
       </ul>
