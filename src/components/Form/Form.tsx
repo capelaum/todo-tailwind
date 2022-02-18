@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import Todo from '../../model/Todo'
 
+import { BsPlusLg } from 'react-icons/bs'
+
 interface FormProps {
   createNewTodo: (todo: Todo) => void
 }
@@ -36,7 +38,7 @@ export function Form({ createNewTodo }: FormProps) {
         onClick={handleCreateNewTodo}
         className="ml-3 bg-purple-700 text-white text-xl px-5 py-2 rounded-lg focus:outline-none "
       >
-        +
+        <BsPlusLg size={14} />
       </button>
     </div>
   )

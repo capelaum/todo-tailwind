@@ -1,3 +1,5 @@
+import { MdOutlineCheck } from 'react-icons/md'
+
 interface SelectionProps {
   value: boolean
 }
@@ -16,7 +18,7 @@ export function Selection({ value }: SelectionProps) {
       ${gradient}
     `}
     >
-      {value ? 'x' : ''}
+      {value ? <MdOutlineCheck size={20} /> : ''}
     </div>
   )
 }
