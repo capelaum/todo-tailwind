@@ -11,7 +11,7 @@ export function ListFooter({ todos, changed }: ListFooterProps) {
     return (
       <div className="text-gray-500 hidden lg:inline text-sm">
         <span>
-          {todos.quantity}{' '}
+          {todos.quantity > 0 ? todos.quantity : ''}{' '}
           {todos.quantity === 0
             ? 'Nenhuma tarefa encontrada'
             : todos.quantity === 1
@@ -60,7 +60,7 @@ export function ListFooter({ todos, changed }: ListFooterProps) {
   }
 
   return (
-    <li className="flex p-5 flex-col sm:flex-row items-center sm:justify-between">
+    <li className="flex p-5 flex-col sm:flex-row items-center sm:justify-between justify-center">
       {renderTodosListQuantity()}
       {renderFilterButtons()}
       {renderDeleteCompletedTodos()}
