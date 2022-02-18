@@ -34,7 +34,7 @@ export function Form({ createNewTodo }: FormProps) {
       />
       <button
         onClick={handleCreateNewTodo}
-        className="ml-3 bg-purple-600 text-white text-xl px-5 py-2 rounded-lg focus:outline-none "
+        className="ml-3 bg-purple-700 text-white text-xl px-5 py-2 rounded-lg focus:outline-none "
       >
         +
       </button>

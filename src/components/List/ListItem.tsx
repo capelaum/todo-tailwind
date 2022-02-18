@@ -12,7 +12,7 @@ export function ListItem({ value, completed, alternateStatus }: ListItemProps) {
   return (
     <li
       onClick={alternateStatus}
-      className="flex items-center text-black text-md p-5 border-b border-gray-400 cursor-pointer"
+      className="flex items-center text-black text-md p-5 border-t border-gray-400 cursor-pointer"
     >
       <Selection value={completed} />
       <span className={`ml-5 font-light ${textStyle}`}>{value}</span>
