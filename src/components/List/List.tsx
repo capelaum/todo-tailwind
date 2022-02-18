@@ -1,6 +1,6 @@
 import Todo from '../../model/Todo'
 import TodosList from '../../model/TodosList'
-import { ListButton } from './ListButton'
+import { ListFooter } from './ListFooter'
 import { ListItem } from './ListItem'
 
 interface ListProps {
@@ -29,18 +29,10 @@ export function List({ todos, changed }: ListProps) {
   }
 
   return (
-    <div
-      className={`
-      flex w-3/5
-    `}
-    >
+    <div className="flex w-3/5">
       <ul className="w-full list-none bg-white shadow-lg rounded-lg">
         {renderTodos()}
-        <li className="p-5">
-          <ListButton selected={true} className="" onClick={(e) => {}}>
-            Todas
-          </ListButton>
-        </li>
+        <ListFooter todos={todos} changed={changed} />
       </ul>
     </div>
   )
