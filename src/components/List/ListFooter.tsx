@@ -13,10 +13,10 @@ export function ListFooter({ todos, changed }: ListFooterProps) {
         <span>
           {todos.quantity > 0 ? todos.quantity : ''}{' '}
           {todos.quantity === 0
-            ? 'Nenhuma tarefa encontrada'
+            ? 'No todos'
             : todos.quantity === 1
-            ? 'Tarefa encontrada'
-            : 'Tarefas encontradas'}
+            ? 'Todo found'
+            : 'Todos found'}
         </span>
       </div>
     )
@@ -30,20 +30,20 @@ export function ListFooter({ todos, changed }: ListFooterProps) {
           onClick={() => changed(todos.removeFilters())}
           className="hidden md:inline"
         >
-          Todas
+          All
         </ListButton>
         <ListButton
           selected={todos.isFilterActive()}
           onClick={() => changed(todos.filterActiveTodos())}
           className="mr-4 md:mx-4"
         >
-          Ativas
+          Active
         </ListButton>
         <ListButton
           selected={todos.isFilterCompleted()}
           onClick={() => changed(todos.filterCompletedTodos())}
         >
-          Concluídas
+          Completed
         </ListButton>
       </div>
     )
@@ -53,7 +53,7 @@ export function ListFooter({ todos, changed }: ListFooterProps) {
     return (
       <div className="mt-5 sm:mt-0">
         <ListButton onClick={() => changed(todos.deleteCompletedTodos())}>
-          Excluir concluídas
+          Delete completed
         </ListButton>
       </div>
     )

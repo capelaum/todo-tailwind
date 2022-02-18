@@ -7,6 +7,7 @@ import { Content } from './components/Template/Content'
 import { Footer } from './components/Template/Footer'
 
 import Todo from './model/Todo'
+import TodosList from './model/TodosList'
 
 import { initialTodosList } from './data/mock'
 
@@ -17,18 +18,17 @@ function App() {
     setTodos(todos.createTodo(newTodo))
   }
 
+  function changed(newTodosList: TodosList) {
+    setTodos(newTodosList)
+  }
+
   return (
     <div className="h-screen flex flex-col bg-gray-300 ">
       <Header>
         <Form createNewTodo={createNewTodo} />
       </Header>
       <Content>
-        <List
-          todos={todos}
-          changed={(newTodosList) => {
-            setTodos(newTodosList)
-          }}
-        />
+        <List todos={todos} changed={changed} />
       </Content>
       <Footer />
     </div>
